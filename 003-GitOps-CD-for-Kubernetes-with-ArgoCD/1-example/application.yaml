@@ -6,8 +6,8 @@ metadata:
 spec:
     project: default 
     source:
-        repoURL: 'git@github.com:aminlahbib/Terraform.git'
+        repoURL: 'https://github.com/aminlahbib/Terraform.git'
         targetRevision: 003/GitOps-CD-for-Kubernetes-with-ArgoCD
-        path: my-app
+        path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/my-app
     destination:
         server: 'https://kubernetes.default.svc' 
