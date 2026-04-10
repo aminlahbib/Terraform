@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+    name: my-app
+    namespace: argocd
+spec:
+    project: default 
+    source:
+        repoURL: 'git@github.com:aminlahbib/Terraform.git'
+        targetRevision: 003/GitOps-CD-for-Kubernetes-with-ArgoCD
+        path: my-app
+    destination:
+        server: 'https://kubernetes.default.svc' 
