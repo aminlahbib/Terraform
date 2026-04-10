@@ -1,0 +1,6 @@
+/001/tf-app-492808-94ef06cda243.json
+
+# Local .terraform directory
+/.terraform/
+
+.DS_Store

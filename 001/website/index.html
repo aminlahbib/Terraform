@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amine Lahbib — Cloud Engineering Career Brief</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=Inter:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0e0f11;
+    --bg2: #15161a;
+    --bg3: #1c1d23;
+    --border: #2a2b32;
+    --border2: #363740;
+    --text: #e8e9ed;
+    --text2: #9b9dab;
+    --text3: #5f6172;
+    --accent: #5b7fff;
+    --accent2: #3d5ce0;
+    --green: #3dd68c;
+    --amber: #f5a623;
+    --red: #e05252;
+    --teal: #2ec4b6;
+    --purple: #a78bfa;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { font-size: 16px; scroll-behavior: smooth; }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(14,15,17,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; gap: 4px;
+    height: 52px;
+    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    overflow-x: auto;
+  }
+  nav a {
+    color: var(--text3); text-decoration: none;
+    padding: 6px 12px; border-radius: 6px;
+    white-space: nowrap; transition: all .15s;
+  }
+  nav a:hover { color: var(--text); background: var(--bg3); }
+  nav .active { color: var(--accent); }
+  nav .logo {
+    color: var(--text); font-weight: 600; margin-right: 16px;
+    font-family: 'Syne', sans-serif; font-size: 14px; white-space: nowrap;
+  }
+
+  /* LAYOUT */
+  .container { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+
+  /* HERO */
+  .hero {
+    border-bottom: 1px solid var(--border);
+    padding: 80px 40px 60px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .12em;
+    color: var(--accent); text-transform: uppercase;
+    background: rgba(91,127,255,.1); border: 1px solid rgba(91,127,255,.25);
+    padding: 4px 10px; border-radius: 4px; margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(32px, 5vw, 52px); line-height: 1.1;
+    letter-spacing: -.02em; margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--text2); font-size: 16px; max-width: 580px; }
+
+  .status-row {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-top: 36px;
+  }
+  .status-chip {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 8px;
+    border: 1px solid var(--border2);
+    font-size: 13px; font-family: 'DM Mono', monospace;
+    background: var(--bg2);
+  }
+  .status-chip .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+  }
+  .dot-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .dot-amber { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+  .dot-red { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
+  /* SECTION HEADERS */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: .14em;
+    color: var(--text3); text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 26px; letter-spacing: -.015em;
+    margin-bottom: 8px; color: var(--text);
+  }
+  h3 {
+    font-family: 'Syne', sans-serif; font-weight: 600;
+    font-size: 17px; color: var(--text);
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-family: 'Inter', sans-serif; font-weight: 500;
+    font-size: 14px; color: var(--text2); letter-spacing: .03em;
+  }
+
+  .section-intro { color: var(--text2); font-size: 15px; margin-bottom: 40px; max-width: 680px; }
+
+  /* DIVIDER */
+  .section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+
+  /* WEEK TABLE */
+  .week-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: var(--bg2);
+  }
+  .week-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+  .week-num {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--accent); background: rgba(91,127,255,.12);
+    border: 1px solid rgba(91,127,255,.2);
+    padding: 3px 8px; border-radius: 4px; white-space: nowrap;
+  }
+  .week-title { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 15px; }
+  .week-badge {
+    margin-left: auto; font-size: 12px; padding: 3px 10px;
+    border-radius: 20px; font-family: 'DM Mono', monospace;
+  }
+  .badge-critical { background: rgba(224,82,82,.12); color: #f08080; border: 1px solid rgba(224,82,82,.25); }
+  .badge-important { background: rgba(245,166,35,.12); color: #f5b95e; border: 1px solid rgba(245,166,35,.25); }
+  .badge-strategic { background: rgba(91,127,255,.12); color: #8aacff; border: 1px solid rgba(91,127,255,.25); }
+
+  .week-body { padding: 20px; }
+  .week-body p { color: var(--text2); font-size: 14px; margin-bottom: 16px; }
+
+  .week-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 600px) { .week-grid { grid-template-columns: 1fr; } }
+
+  .week-col-label {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--text3); font-family: 'DM Mono', monospace;
+    margin-bottom: 8px;
+  }
+  .item-list { list-style: none; }
+  .item-list li {
+    font-size: 13px; color: var(--text2); padding: 4px 0;
+    padding-left: 16px; position: relative;
+  }
+  .item-list li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 11px;
+  }
+
+  .proof-box {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: rgba(61,214,140,.06); border: 1px solid rgba(61,214,140,.18);
+    border-radius: 8px; padding: 12px 16px;
+  }
+  .proof-icon { font-size: 14px; margin-top: 1px; }
+  .proof-box p { color: #7ee8b0; font-size: 13px; margin: 0; }
+  .proof-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--green); text-transform: uppercase; letter-spacing: .1em; }
+
+  /* SKILL COMPARISON */
+  .skill-map {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-bottom: 32px;
+  }
+  .skill-map table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .skill-map th {
+    background: var(--bg3); padding: 12px 16px; text-align: left;
+    font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em;
+    color: var(--text3); text-transform: uppercase; font-weight: 400;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-map td { padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: top; }
+  .skill-map tr:last-child td { border-bottom: none; }
+  .skill-map td:first-child { font-weight: 500; color: var(--text); white-space: nowrap; }
+  .skill-map td:nth-child(2) { color: var(--text2); }
+  .skill-map td:nth-child(3) { color: var(--text2); font-size: 12px; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: 'DM Mono', monospace; margin-right: 4px; }
+  .tag-green { background: rgba(61,214,140,.12); color: #6ee8a8; border: 1px solid rgba(61,214,140,.2); }
+  .tag-red { background: rgba(224,82,82,.12); color: #f08080; border: 1px solid rgba(224,82,82,.2); }
+  .tag-amber { background: rgba(245,166,35,.12); color: #f5b95e; border: 1px solid rgba(245,166,35,.2); }
+
+  /* CERT CALLOUT */
+  .cert-box {
+    background: linear-gradient(135deg, rgba(91,127,255,.08), rgba(61,214,140,.06));
+    border: 1px solid rgba(91,127,255,.25); border-radius: 12px;
+    padding: 24px; margin: 32px 0;
+  }
+  .cert-box h3 { color: var(--accent); margin-bottom: 8px; }
+  .cert-box p { color: var(--text2); font-size: 14px; }
+  .cert-box strong { color: var(--text); }
+
+  /* PROJECT CARDS */
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    margin-bottom: 28px; background: var(--bg2);
+  }
+  .project-header {
+    padding: 20px 24px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .project-num {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: .12em; color: var(--text3); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .project-title {
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tag {
+    font-size: 11px; font-family: 'DM Mono', monospace;
+    padding: 3px 9px; border-radius: 4px;
+    background: var(--bg3); border: 1px solid var(--border2);
+    color: var(--text3);
+  }
+  .wow-badge {
+    flex-shrink: 0;
+    background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.25);
+    border-radius: 8px; padding: 10px 14px; max-width: 200px;
+  }
+  .wow-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--purple); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; }
+  .wow-text { font-size: 13px; color: var(--text2); }
+
+  .project-body { padding: 20px 24px; }
+  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  @media (max-width: 640px) { .project-grid { grid-template-columns: 1fr; } }
+  
+  .mini-section { margin-bottom: 16px; }
+  .mini-label {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    font-family: 'DM Mono', monospace; color: var(--text3); margin-bottom: 8px;
+  }
+
+  .pitch-box {
+    background: rgba(91,127,255,.06); border-left: 2px solid var(--accent);
+    border-radius: 0 8px 8px 0; padding: 14px 18px;
+    font-style: italic; color: var(--text2); font-size: 14px; line-height: 1.6;
+    margin-top: 16px;
+  }
+  .pitch-box::before {
+    content: '"';
+    font-family: 'Syne', sans-serif; font-size: 28px; color: var(--accent);
+    line-height: 0; vertical-align: -8px; margin-right: 4px;
+  }
+
+  /* REPO STRUCTURE */
+  .repo-tree {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 18px;
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    color: var(--text2); line-height: 1.9;
+  }
+  .repo-tree .dir { color: var(--accent); }
+  .repo-tree .file { color: var(--text3); }
+  .repo-tree .comment { color: var(--text3); font-size: 11px; }
+
+  /* INTERVIEW PREP */
+  .qa-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; margin-bottom: 20px; overflow: hidden;
+  }
+  .qa-q {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+    font-weight: 500; font-size: 15px; color: var(--text);
+  }
+  .qa-q .q-num {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--text3); margin-bottom: 4px;
+  }
+  .qa-body { padding: 20px; }
+  
+  .star-grid { display: grid; grid-template-columns: 90px 1fr; gap: 8px 16px; }
+  .star-label {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--accent); text-transform: uppercase; letter-spacing: .1em;
+    padding-top: 2px;
+  }
+  .star-text { font-size: 14px; color: var(--text2); line-height: 1.6; }
+
+  .gap-flag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(245,166,35,.08); border: 1px solid rgba(245,166,35,.2);
+    border-radius: 6px; padding: 8px 14px;
+    font-size: 13px; color: #f5b95e; margin: 12px 0;
+  }
+  .bridge-box {
+    background: rgba(46,196,182,.06); border-left: 2px solid var(--teal);
+    border-radius: 0 8px 8px 0; padding: 12px 16px;
+    font-size: 13px; color: var(--text2); margin-top: 12px;
+    font-style: italic;
+  }
+  .bridge-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: .1em; display: block; margin-bottom: 4px; font-style: normal; }
+
+  .model-answer {
+    background: var(--bg3); border-radius: 8px; padding: 14px 16px;
+    font-size: 14px; color: var(--text2); line-height: 1.6;
+  }
+  .model-answer-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+
+  /* PITCH */
+  .pitch-card {
+    background: var(--bg2); border: 1px solid rgba(91,127,255,.3);
+    border-radius: 14px; padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .pitch-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--teal));
+  }
+  .pitch-text {
+    font-size: 17px; line-height: 1.8; color: var(--text);
+    font-style: italic;
+  }
+  .pitch-text em { font-style: normal; color: var(--accent); }
+  .pitch-text strong { font-style: normal; color: var(--green); font-weight: 500; }
+
+  /* QUESTIONS TO ASK */
+  .ask-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px; margin-bottom: 12px;
+    display: flex; gap: 16px;
+  }
+  .ask-num {
+    font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 500;
+    color: var(--border2); flex-shrink: 0; width: 28px; padding-top: 2px;
+  }
+  .ask-q { font-size: 15px; color: var(--text); margin-bottom: 4px; font-weight: 500; }
+  .ask-why { font-size: 13px; color: var(--text3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 0 16px; }
+    .container { padding: 40px 20px; }
+    .hero { padding: 48px 20px 40px; }
+    .project-header { flex-direction: column; }
+    .wow-badge { max-width: 100%; }
+  }
+
+  /* UTILS */
+  code {
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 1px 6px; border-radius: 4px; color: var(--teal);
+  }
+  .text-muted { color: var(--text2); }
+  .text-sm { font-size: 13px; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-16 { margin-bottom: 16px; }
+  .mb-24 { margin-bottom: 24px; }
+  .mb-32 { margin-bottom: 32px; }
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+
+  strong { font-weight: 500; color: var(--text); }
+
+  .inline-strong { color: var(--text); font-weight: 500; }
+  p { margin-bottom: 12px; }
+  p:last-child { margin-bottom: 0; }
+
+  .mapping-note {
+    font-size: 12px; font-family: 'DM Mono', monospace;
+    color: var(--text3); padding: 8px 12px; border-radius: 6px;
+    background: var(--bg3); border: 1px solid var(--border); margin-top: 12px;
+  }
+  .mapping-note span { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">Amine Lahbib</span>
+  <a href="#roadmap">01 Roadmap</a>
+  <a href="#projects">02 Projects</a>
+  <a href="#behavioral">03 Behavioral</a>
+  <a href="#technical">04 Technical</a>
+  <a href="#questions">05 Questions</a>
+  <a href="#pitch">06 Pitch</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Cloud Engineering Career Brief</div>
+  <h1>From strong GCP candidate<br>to <span>hired</span>.</h1>
+  <p>A senior-mentor-level coaching brief for the Working Student Cloud Engineering role — complete with a week-by-week action plan, four portfolio projects, and interview-ready scripts.</p>
+  <div class="status-row">
+    <div class="status-chip"><span class="dot dot-green"></span>Microservices / IaC — expert</div>
+    <div class="status-chip"><span class="dot dot-green"></span>Security-first architecture — strong</div>
+    <div class="status-chip"><span class="dot dot-amber"></span>AWS / Azure — critical gap</div>
+    <div class="status-chip"><span class="dot dot-amber"></span>Python — important gap</div>
+    <div class="status-chip"><span class="dot dot-red"></span>No certifications — visible gap</div>
+  </div>
+</div>
+
+<!-- OUTPUT 1: ROADMAP -->
+<div class="container">
+
+<div class="section" id="roadmap">
+  <p class="section-label">Output 01</p>
+  <h2>Skill Gap Roadmap</h2>
+  <p class="section-intro">An 8-week structured plan that closes the most damaging gaps first. AWS credibility unlocks the single biggest objection; Python fills the secondary gap; Kotlin is last because it transfers from Java in hours.</p>
+
+  <!-- SKILL STATUS TABLE -->
+  <div class="skill-map mb-32">
+    <table>
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Your Status</th>
+          <th>Interview Minimum</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AWS (EC2, ECS, Lambda, S3, IAM)</td>
+          <td>No experience — only GCP</td>
+          <td>Deploy a containerized workload with Terraform, explain IAM roles, know ECS vs Lambda tradeoffs</td>
+          <td><span class="tag tag-red">Critical</span></td>
+        </tr>
+        <tr>
+          <td>Azure (AKS, App Service, RBAC)</td>
+          <td>No experience</td>
+          <td>Deploy one end-to-end workload, understand resource groups + RBAC, map to Azure CLI</td>
+          <td><span class="tag tag-red">Critical</span></td>
+        </tr>
+        <tr>
+          <td>Python</td>
+          <td>Not in stack at all</td>
+          <td>Write a working FastAPI service, scripting for infrastructure tasks, pandas basics</td>
+          <td><span class="tag tag-amber">Important</span></td>
+        </tr>
+        <tr>
+          <td>Cloud Certification (AWS SAA-C03)</td>
+          <td>None</td>
+          <td>Pass or demonstrate study progress — signals commitment</td>
+          <td><span class="tag tag-amber">Important</span></td>
+        </tr>
+        <tr>
+          <td>Kotlin</td>
+          <td>Not listed, but Java C expert</td>
+          <td>Can write basic Kotlin syntax, knows null-safety + coroutines concept</td>
+          <td><span class="tag tag-green">Low</span></td>
+        </tr>
+        <tr>
+          <td>Client communication</td>
+          <td>No consulting history</td>
+          <td>Have a story about explaining technical concepts to non-technical stakeholders</td>
+          <td><span class="tag tag-amber">Behavioral</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CERT RECOMMENDATION -->
+  <div class="cert-box mb-32">
+    <h3>Certification to pursue: AWS Solutions Architect Associate (SAA-C03)</h3>
+    <p><strong>Why this one, not Azure or GCP?</strong> The job description lists AWS first. SAA-C03 is the most recognized cloud cert in the German consulting market, covers core services broadly (not just one domain), and the study material is the fastest path to fluent AWS conversation. Budget 4–6 weeks of evening study. Cost: ~€350 at Pearson VUE. Use <strong>Stephane Maarek's course on Udemy (frequently €12)</strong> + AWS Free Tier practice. Azure certs are secondary — you can mention "actively studying" in interview without having passed. Do not pursue Kubernetes certs (CKA/CKAD) — your GCP Kubernetes work already demonstrates that.</p>
+  </div>
+
+  <!-- WEEK-BY-WEEK -->
+  <div class="week-card">
+    <div class="week-header">
+      <span class="week-num">Week 01–02</span>
+      <span class="week-title">AWS Core Services & IAM</span>
+      <span class="week-badge badge-critical">Critical</span>
+    </div>
+    <div class="week-body">
+      <p>Your GCP background transfers well here. Cloud Run → Lambda + API Gateway. GKE → ECS/EKS. GCS → S3. Cloud IAM → AWS IAM. Study the AWS mental model differences, not re-learn cloud from scratch.</p>
+      <div class="week-grid">
+        <div>
+          <p class="week-col-label">Topics</p>
+          <ul class="item-list">
+            <li>IAM: users, roles, policies, STS assume-role (analogous to GCP Service Accounts)</li>
+            <li>EC2 + Security Groups (no direct GCP equivalent — learn it fresh)</li>
+            <li>S3: buckets, versioning, bucket policies, presigned URLs</li>
+            <li>VPC: subnets, route tables, NAT gateway, VPC peering</li>
+            <li>ECS (Fargate): task definitions, services (≈ GCP Cloud Run)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="week-col-label">Resources</p>
+          <ul class="item-list">
+            <li>Stephane Maarek — AWS SAA-C03 Udemy course (Sections 1–10)</li>
+            <li>AWS Free Tier account (create now)</li>
+            <li>AWS docs: IAM Best Practices guide (30 min read)</li>
+            <li>GCP → AWS services mapping: cloud.google.com/free/docs/aws-azure-gcp-service-comparison</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-box">
+        <span class="proof-icon">🔬</span>
+        <div>
+          <p class="proof-label">Proof of learning</p>
+          <p>Deploy a containerized Spring Boot service on ECS Fargate with Terraform — IAM role, ECR repo, task definition, ALB. Push to GitHub with README documenting GCP equivalents for each AWS resource.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <span class="week-num">Week 03</span>
+      <span class="week-title">AWS Advanced Services + Terraform</span>
+      <span class="week-badge badge-critical">Critical</span>
+    </div>
+    <div class="week-body">
+      <p>You already know Terraform on GCP — reuse your modules, swap the provider. Focus on AWS-specific Terraform patterns: IAM least-privilege modules, Secrets Manager integration, CloudWatch log groups.</p>
+      <div class="week-grid">
+        <div>
+          <p class="week-col-label">Topics</p>
+          <ul class="item-list">
+            <li>RDS, ElastiCache (Aurora, PostgreSQL on AWS)</li>
+            <li>AWS Secrets Manager (compare to your Cloud Secrets Manager project)</li>
+            <li>CloudWatch: logs, metrics, dashboards (≈ Cloud Monitoring + Logging)</li>
+            <li>Lambda + API Gateway (serverless patterns)</li>
+            <li>Terraform AWS modules: VPC, ECS, ALB</li>
+          </ul>
+        </div>
+        <div>
+          <p class="week-col-label">Resources</p>
+          <ul class="item-list">
+            <li>Maarek SAA-C03 Sections 11–18</li>
+            <li>Terraform AWS provider registry (terraform.io)</li>
+            <li>AWS Workshop Studio — "ECS Fargate" workshop (free)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-box">
+        <span class="proof-icon">🔬</span>
+        <div>
+          <p class="proof-label">Proof of learning</p>
+          <p>Extend Week 1–2 project: add RDS, Secrets Manager, and CloudWatch dashboard — fully provisioned with Terraform. Commit a <code>docs/aws-vs-gcp.md</code> comparison file to the repo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <span class="week-num">Week 04</span>
+      <span class="week-title">Azure Fundamentals + AKS</span>
+      <span class="week-badge badge-critical">Critical</span>
+    </div>
+    <div class="week-body">
+      <p>Azure has more enterprise weight in German consulting. You don't need depth here — you need credibility. Hit resource groups, RBAC, AKS, and one IaC-deployed workload.</p>
+      <div class="week-grid">
+        <div>
+          <p class="week-col-label">Topics</p>
+          <ul class="item-list">
+            <li>Azure resource groups, subscriptions, management groups</li>
+            <li>Azure RBAC vs AWS IAM (key interview topic)</li>
+            <li>AKS (Azure Kubernetes Service — your GCP GKE knowledge transfers directly)</li>
+            <li>Azure Container Registry, App Service, Azure Functions</li>
+            <li>Azure DevOps Pipelines vs GitHub Actions (you know GH Actions)</li>
+            <li>Terraform AzureRM provider basics</li>
+          </ul>
+        </div>
+        <div>
+          <p class="week-col-label">Resources</p>
+          <ul class="item-list">
+            <li>Microsoft Learn: AZ-900 path (free, excellent, 6 hrs)</li>
+            <li>Microsoft Learn: AKS quickstart</li>
+            <li>Azure free account ($200 credit)</li>
+            <li>Terraform: hashicorp/azurerm provider docs</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-box">
+        <span class="proof-icon">🔬</span>
+        <div>
+          <p class="proof-label">Proof of learning</p>
+          <p>Deploy the same containerized workload on AKS with Terraform — this becomes your cross-cloud project. Diagram showing the AWS vs Azure vs GCP equivalent architectures as a single README.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <span class="week-num">Week 05</span>
+      <span class="week-title">Python — Fast Track to Production Basics</span>
+      <span class="week-badge badge-important">Important</span>
+    </div>
+    <div class="week-body">
+      <p>You know TypeScript and Java deeply. Python's syntax takes hours to learn. Focus immediately on the patterns this consultancy will actually use: FastAPI microservices, boto3 for AWS automation scripts, and basic pandas for data work.</p>
+      <div class="week-grid">
+        <div>
+          <p class="week-col-label">Topics</p>
+          <ul class="item-list">
+            <li>Python syntax, typing, dataclasses, async/await (maps from your TypeScript/Java knowledge)</li>
+            <li>FastAPI: routes, Pydantic models, dependency injection</li>
+            <li>boto3: S3 operations, Lambda invocation, Secrets Manager calls</li>
+            <li>Docker packaging of Python apps (same as your Java work)</li>
+            <li>pytest basics</li>
+          </ul>
+        </div>
+        <div>
+          <p class="week-col-label">Resources</p>
+          <ul class="item-list">
+            <li>"Python in 4 hours" — Tech With Tim YouTube (syntax crash course)</li>
+            <li>FastAPI official docs (tiangolo.com/fastapi) — best docs in Python ecosystem</li>
+            <li>boto3 official docs + AWS SDK for Python examples</li>
+            <li>Real Python — "Python Type Hints" article</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-box">
+        <span class="proof-icon">🔬</span>
+        <div>
+          <p class="proof-label">Proof of learning</p>
+          <p>Build and Dockerize a FastAPI service with a health endpoint, one CRUD route, Pydantic validation, and boto3 call to fetch a secret from AWS Secrets Manager. Push to GitHub with CI via GitHub Actions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <span class="week-num">Week 06</span>
+      <span class="week-title">Portfolio Project Build Sprint 1</span>
+      <span class="week-badge badge-important">Important</span>
+    </div>
+    <div class="week-body">
+      <p>Stop studying. Start building. Weeks 6–7 are dedicated to the portfolio projects (see Output 2). Choose Project 1 (AWS multi-account Terraform module) and Project 3 (Python FastAPI + AWS Lambda). These are the two that most directly address the "no AWS experience" and "no Python" gaps simultaneously.</p>
+      <div class="week-grid">
+        <div>
+          <p class="week-col-label">Build</p>
+          <ul class="item-list">
+            <li>Project 1: AWS Multi-Cloud Secret Sync Service</li>
+            <li>Wire Terraform modules, ECS Fargate, Secrets Manager</li>
+            <li>Write architecture decision record (ADR) document</li>
+          </ul>
+        </div>
+        <div>
+          <p class="week-col-label">Parallel</p>
+          <ul class="item-list">
+            <li>Continue SAA-C03 exam study (Sections 19–28 of Maarek)</li>
+            <li>Take 1–2 practice exams at exampro.co (free tier)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-box">
+        <span class="proof-icon">🔬</span>
+        <div>
+          <p class="proof-label">Proof of learning</p>
+          <p>Project 1 GitHub repo live with README, architecture diagram, Terraform plan output, and CI pipeline passing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <span class="week-num">Week 07</span>
+      <span class="week-title">Portfolio Build Sprint 2 + Kotlin Basics</span>
+      <span class="week-badge badge-important">Important</span>
+    </div>
+    <div class="week-body">
+      <p>Kotlin takes two afternoons if you already know Java. Don't over-invest. Learn null safety, data classes, extension functions, and coroutines. Then use it in Project 2 (Azure microservice).</p>
+      <div class="week-grid">
+        <div>
+          <p class="week-col-label">Build</p>
+          <ul class="item-list">
+            <li>Project 2: Azure-native CI/CD infrastructure pipeline</li>
+            <li>Project 3: Python anomaly detection Lambda service</li>
+          </ul>
+        </div>
+        <div>
+          <p class="week-col-label">Kotlin Topics</p>
+          <ul class="item-list">
+            <li>Null safety: <code>?</code>, <code>!!</code>, <code>let</code>, <code>run</code></li>
+            <li>Data classes, sealed classes</li>
+            <li>Coroutines basics (CoroutineScope, suspend, Dispatchers)</li>
+            <li>Kotlin + Spring Boot starter project (30 min)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-box">
+        <span class="proof-icon">🔬</span>
+        <div>
+          <p class="proof-label">Proof of learning</p>
+          <p>Projects 2 and 3 repos live. A tiny Kotlin + Spring Boot health-check service committed to demonstrate syntax familiarity. Score ≥75% on one SAA-C03 practice exam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <span class="week-num">Week 08</span>
+      <span class="week-title">Interview Preparation & Portfolio Polish</span>
+      <span class="week-badge badge-strategic">Strategic</span>
+    </div>
+    <div class="week-body">
+      <p>No new tech this week. Consolidate, rehearse, and sharpen. This is where candidates win or lose — not in what they learned, but in how clearly they can talk about it.</p>
+      <div class="week-grid">
+        <div>
+          <p class="week-col-label">Actions</p>
+          <ul class="item-list">
+            <li>Polish all 4 GitHub repos: README architecture diagrams, cost estimates, tradeoff discussions</li>
+            <li>Practice the 90-second pitch aloud 10 times (see Output 3d)</li>
+            <li>Rehearse all 6 STAR answers until they feel natural</li>
+            <li>Research the company: recent client case studies, blog posts, tech stack</li>
+          </ul>
+        </div>
+        <div>
+          <p class="week-col-label">Mindset</p>
+          <ul class="item-list">
+            <li>Prepare your "growth story" for AWS/Azure gap: "I've been actively building on AWS for the past 6 weeks…"</li>
+            <li>Frame GCP depth as a transferable asset, not a gap</li>
+            <li>Prepare 5 consultancy-specific questions (see Output 3c)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proof-box">
+        <span class="proof-icon">🔬</span>
+        <div>
+          <p class="proof-label">Proof of learning</p>
+          <p>Record yourself doing the 90-second pitch. Watch it once. Fix the one biggest problem. Submit application with GitHub portfolio linked.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GCP BRIDGE TABLE -->
+  <div class="mb-24 mt-32">
+    <h3 class="mb-16">GCP → AWS / Azure translation map</h3>
+    <p class="text-muted text-sm mb-16">Use this table to frame your existing GCP knowledge as transferable — not as a limitation. Every interview answer about AWS or Azure should anchor in something you already built.</p>
+    <div class="skill-map">
+      <table>
+        <thead><tr><th>Your GCP experience</th><th>AWS equivalent</th><th>Azure equivalent</th></tr></thead>
+        <tbody>
+          <tr><td>GKE (Kubernetes cluster)</td><td>EKS (or ECS for simpler)</td><td>AKS</td></tr>
+          <tr><td>Cloud Run (serverless containers)</td><td>ECS Fargate / Lambda</td><td>Azure Container Apps</td></tr>
+          <tr><td>Cloud Pub/Sub</td><td>SNS + SQS</td><td>Azure Service Bus / Event Grid</td></tr>
+          <tr><td>GCP Secret Manager</td><td>AWS Secrets Manager</td><td>Azure Key Vault</td></tr>
+          <tr><td>Cloud IAM + Service Accounts</td><td>IAM + IAM Roles</td><td>Azure RBAC + Managed Identities</td></tr>
+          <tr><td>Artifact Registry (container images)</td><td>ECR</td><td>Azure Container Registry</td></tr>
+          <tr><td>Cloud Monitoring + Logging</td><td>CloudWatch (metrics + logs)</td><td>Azure Monitor + Log Analytics</td></tr>
+          <tr><td>Cloud Storage (GCS)</td><td>S3</td><td>Azure Blob Storage</td></tr>
+          <tr><td>Terraform on GCP (google provider)</td><td>Terraform (aws provider)</td><td>Terraform (azurerm provider)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /section roadmap -->
+
+<!-- OUTPUT 2: PROJECTS -->
+<div class="section" id="projects">
+  <p class="section-label">Output 02</p>
+  <h2>Portfolio Project Briefs</h2>
+  <p class="section-intro">Four projects scoped for 1–2 weeks of part-time work. Each fills a specific gap and amplifies your existing strengths. None are tutorial clones — all involve architecture decisions you'd need to defend in an interview.</p>
+
+  <!-- PROJECT 1 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <p class="project-num">Project 01 · AWS</p>
+        <p class="project-title">Multi-Cloud Secret Sync Engine</p>
+        <div class="project-tags">
+          <span class="project-tag">AWS ECS Fargate</span>
+          <span class="project-tag">Terraform</span>
+          <span class="project-tag">Secrets Manager</span>
+          <span class="project-tag">SNS/SQS</span>
+          <span class="project-tag">Spring Boot</span>
+          <span class="project-tag">Python (ops scripts)</span>
+        </div>
+      </div>
+      <div class="wow-badge">
+        <p class="wow-label">Wow factor</p>
+        <p class="wow-text">Extends your existing Cloud Secrets Manager project to AWS — same security story, new cloud.</p>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">What to build</p>
+          <p class="text-sm text-muted">A Spring Boot service that watches AWS Secrets Manager for changes (via SNS/SQS event bridge) and syncs them to a second target (could be a mock external API or your GCP Secret Manager via its REST API). Infra fully provisioned with Terraform. Observability via CloudWatch dashboards. A Python boto3 script for bulk secret rotation ops.</p>
+        </div>
+        <div>
+          <p class="mini-label">Architecture decisions to defend</p>
+          <ul class="item-list">
+            <li>Why ECS Fargate over Lambda for this workload</li>
+            <li>IAM least-privilege: per-service roles, no wildcard policies</li>
+            <li>At-least-once delivery via SQS dead-letter queue</li>
+            <li>Secrets never logged — AES-256-GCM in-flight encryption</li>
+            <li>Terraform state in S3 with DynamoDB locking</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">GitHub repo structure</p>
+          <div class="repo-tree">
+            <span class="dir">secret-sync-engine/</span><br>
+            &nbsp;&nbsp;<span class="dir">infra/</span> <span class="comment"># Terraform modules</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">modules/ecs-service/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">modules/iam/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">modules/sqs-sns/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">environments/prod/</span><br>
+            &nbsp;&nbsp;<span class="dir">service/</span> <span class="comment"># Spring Boot app</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">src/main/java/…</span><br>
+            &nbsp;&nbsp;<span class="dir">scripts/</span> <span class="comment"># Python boto3 ops</span><br>
+            &nbsp;&nbsp;<span class="file">docs/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">ADR-001-ecs-vs-lambda.md</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">architecture.png</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">aws-vs-gcp-mapping.md</span>
+          </div>
+        </div>
+        <div>
+          <p class="mini-label">README sections</p>
+          <ul class="item-list">
+            <li>Problem statement & why this matters</li>
+            <li>Architecture diagram (draw.io or Mermaid)</li>
+            <li>AWS service mapping to GCP equivalents</li>
+            <li>Security design (IAM roles, encryption)</li>
+            <li>Deployment (terraform init/apply, one-command)</li>
+            <li>Observability screenshots</li>
+            <li>Cost estimate (AWS Free Tier coverage)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mapping-note">
+        <span>→ JD mapping:</span> "Develop cloud architectures in AWS" + "Automate infrastructure with IaC" + "Security-first design in client projects"
+      </div>
+
+      <div class="pitch-box">
+        I extended my Cloud Secrets Manager platform from GCP to AWS — rebuilding the same zero-knowledge encryption and event-driven sync architecture using ECS Fargate, Secrets Manager, and SQS. The whole infra is Terraform-managed with per-service IAM roles. It directly showed me the operational differences between GCP Pub/Sub and AWS SNS/SQS event delivery guarantees.
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <p class="project-num">Project 02 · Azure</p>
+        <p class="project-title">Cloud-Agnostic CI/CD Infrastructure Platform</p>
+        <div class="project-tags">
+          <span class="project-tag">Azure AKS</span>
+          <span class="project-tag">Terraform AzureRM</span>
+          <span class="project-tag">GitHub Actions</span>
+          <span class="project-tag">Azure Key Vault</span>
+          <span class="project-tag">Kotlin / Spring Boot</span>
+          <span class="project-tag">Azure Monitor</span>
+        </div>
+      </div>
+      <div class="wow-badge">
+        <p class="wow-label">Wow factor</p>
+        <p class="wow-text">Same Helm chart deploys to GCP, AWS, and Azure — proves cloud-portable thinking.</p>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">What to build</p>
+          <p class="text-sm text-muted">A Kotlin + Spring Boot microservice (small — a healthcheck + metrics endpoint is enough) deployed to AKS via a GitHub Actions pipeline. The Terraform code provisions the AKS cluster, Azure Container Registry, Key Vault, and Azure Monitor workspace. The same Helm chart used in your GCP projects deploys here with cloud-specific values overrides. Include a GitHub Actions pipeline that runs Trivy (you already know it) before pushing to ACR.</p>
+        </div>
+        <div>
+          <p class="mini-label">Architecture decisions to defend</p>
+          <ul class="item-list">
+            <li>Why Helm + values overrides for multi-cloud portability</li>
+            <li>Azure Managed Identity vs Service Principal (prefer Managed Identity)</li>
+            <li>Key Vault CSI driver for secret injection into pods</li>
+            <li>Trivy container scanning in CI gating (shift-left security)</li>
+            <li>AKS node pool autoscaling configuration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">GitHub repo structure</p>
+          <div class="repo-tree">
+            <span class="dir">multicloud-cicd-platform/</span><br>
+            &nbsp;&nbsp;<span class="dir">infra/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">gcp/</span> <span class="comment"># existing GKE tf</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">aws/</span> <span class="comment"># from Project 1</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">azure/</span> <span class="comment"># new: AKS + ACR</span><br>
+            &nbsp;&nbsp;<span class="dir">helm/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">values.gcp.yaml</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">values.aws.yaml</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">values.azure.yaml</span><br>
+            &nbsp;&nbsp;<span class="dir">service/</span> <span class="comment"># Kotlin Spring Boot</span><br>
+            &nbsp;&nbsp;<span class="dir">.github/workflows/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">deploy-azure.yml</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">security-scan.yml</span>
+          </div>
+        </div>
+        <div>
+          <p class="mini-label">README sections</p>
+          <ul class="item-list">
+            <li>Multi-cloud deployment strategy</li>
+            <li>Azure architecture diagram (AKS + ACR + Key Vault)</li>
+            <li>CI/CD pipeline walkthrough with Trivy scan gate</li>
+            <li>Managed Identity vs Service Principal decision</li>
+            <li>Cross-cloud comparison table (AKS vs GKE vs EKS)</li>
+            <li>One-command deploy per cloud</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mapping-note">
+        <span>→ JD mapping:</span> "Implement cloud architectures in Azure" + "Automate deployments with CI/CD and IaC" + "Research new technologies and best practices"
+      </div>
+
+      <div class="pitch-box">
+        I built a cloud-agnostic deployment platform where the same Kotlin service and Helm chart deploys identically to GCP GKE, AWS ECS, and Azure AKS — you just pass a different Terraform workspace and values file. It forced me to deeply understand where the clouds diverge: Managed Identities versus IAM Roles, Key Vault versus Secrets Manager, and the subtle AKS networking differences versus GKE.
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <p class="project-num">Project 03 · Python + Serverless</p>
+        <p class="project-title">Cloud Cost Anomaly Detector</p>
+        <div class="project-tags">
+          <span class="project-tag">Python / FastAPI</span>
+          <span class="project-tag">AWS Lambda</span>
+          <span class="project-tag">boto3</span>
+          <span class="project-tag">Cost Explorer API</span>
+          <span class="project-tag">SNS Notifications</span>
+          <span class="project-tag">Terraform</span>
+        </div>
+      </div>
+      <div class="wow-badge">
+        <p class="wow-label">Wow factor</p>
+        <p class="wow-text">Directly applicable to consultancy work — every client wants cloud cost governance.</p>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">What to build</p>
+          <p class="text-sm text-muted">A Python Lambda function that polls AWS Cost Explorer daily, computes a rolling 7-day average per service, and triggers an SNS alert when any service exceeds 2x its average cost. Exposed via FastAPI for a simple dashboard (React or plain HTML). Infrastructure provisioned with Terraform. A GitHub Actions workflow deploys the Lambda on every push. Demonstrate it with real (free-tier) AWS cost data from your portfolio projects.</p>
+        </div>
+        <div>
+          <p class="mini-label">Architecture decisions to defend</p>
+          <ul class="item-list">
+            <li>Lambda vs container for this use-case (Lambda wins: bursty, infrequent)</li>
+            <li>Cost Explorer API rate limits and caching strategy</li>
+            <li>Anomaly detection algorithm (Z-score vs percentage threshold — choose, justify)</li>
+            <li>Least-privilege IAM: only <code>ce:GetCostAndUsage</code> + <code>sns:Publish</code></li>
+            <li>FastAPI typed responses with Pydantic — no untyped dicts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">GitHub repo structure</p>
+          <div class="repo-tree">
+            <span class="dir">cloud-cost-anomaly/</span><br>
+            &nbsp;&nbsp;<span class="dir">lambda/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">handler.py</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">anomaly.py</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">requirements.txt</span><br>
+            &nbsp;&nbsp;<span class="dir">api/</span> <span class="comment"># FastAPI</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">main.py</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">models.py</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">Dockerfile</span><br>
+            &nbsp;&nbsp;<span class="dir">infra/</span> <span class="comment"># Terraform</span><br>
+            &nbsp;&nbsp;<span class="dir">.github/workflows/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">deploy-lambda.yml</span>
+          </div>
+        </div>
+        <div>
+          <p class="mini-label">README sections</p>
+          <ul class="item-list">
+            <li>Problem: cloud cost visibility in consulting clients</li>
+            <li>Architecture diagram (Lambda + Cost Explorer + SNS)</li>
+            <li>Detection algorithm explained (with formula)</li>
+            <li>Deployment guide (Terraform + GitHub Actions)</li>
+            <li>Sample alert output screenshot</li>
+            <li>Extension ideas: multi-account, Azure Cost Management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mapping-note">
+        <span>→ JD mapping:</span> "Analyze business requirements and translate into technical implementations" + "Research automation frameworks" + Python requirement
+      </div>
+
+      <div class="pitch-box">
+        Cost overruns are a real problem in cloud consulting. I built a Python Lambda that monitors AWS Cost Explorer daily and fires an SNS alert whenever any service exceeds double its 7-day rolling average. The interesting part was the algorithm choice — I tested both Z-score and percentage thresholds, and percentage with a minimum absolute floor worked better for the spiky, low-volume services typical in dev environments.
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <p class="project-num">Project 04 · Architecture Communication</p>
+        <p class="project-title">Client-Ready Cloud Migration Playbook</p>
+        <div class="project-tags">
+          <span class="project-tag">Architecture Diagrams</span>
+          <span class="project-tag">Terraform Modules</span>
+          <span class="project-tag">AWS + Azure</span>
+          <span class="project-tag">Security Assessment</span>
+          <span class="project-tag">Written Communication</span>
+        </div>
+      </div>
+      <div class="wow-badge">
+        <p class="wow-label">Wow factor</p>
+        <p class="wow-text">Shows you can communicate architecture to non-technical clients — a unique differentiator for working students.</p>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">What to build</p>
+          <p class="text-sm text-muted">Not primarily code — this project is a GitHub repo acting as a professional consulting deliverable. Choose a fictional mid-size German company migrating a monolith to microservices on AWS or Azure. Produce: (1) an as-is architecture diagram, (2) a target-state diagram with annotated trade-offs, (3) a Terraform bootstrap module for the landing zone, (4) a security checklist (map to your SOC2/GDPR knowledge from Cloud Secrets Manager), (5) a 5-slide executive summary written for a non-technical Geschäftsführer. This is the project that addresses the "no consulting experience" gap.</p>
+        </div>
+        <div>
+          <p class="mini-label">What this demonstrates</p>
+          <ul class="item-list">
+            <li>You can structure and communicate technical topics to different audiences</li>
+            <li>You understand the consulting deliverable format (not just code)</li>
+            <li>GCP → AWS migration knowledge anchored in real comparison</li>
+            <li>GDPR/compliance awareness (from your existing Cloud Secrets Manager work)</li>
+            <li>Independent structured thinking without being told what to build</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-grid">
+        <div>
+          <p class="mini-label">GitHub repo structure</p>
+          <div class="repo-tree">
+            <span class="dir">cloud-migration-playbook/</span><br>
+            &nbsp;&nbsp;<span class="dir">01-discovery/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">as-is-architecture.png</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">requirements-analysis.md</span><br>
+            &nbsp;&nbsp;<span class="dir">02-target-architecture/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">target-state.png</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">adr/ (decision records)</span><br>
+            &nbsp;&nbsp;<span class="dir">03-terraform/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">landing-zone/</span><br>
+            &nbsp;&nbsp;<span class="dir">04-security/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">gdpr-checklist.md</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">soc2-controls.md</span><br>
+            &nbsp;&nbsp;<span class="dir">05-executive-summary/</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">migration-brief.pdf</span>
+          </div>
+        </div>
+        <div>
+          <p class="mini-label">README sections</p>
+          <ul class="item-list">
+            <li>Fictional client brief (sets context)</li>
+            <li>Migration strategy rationale (lift-and-shift vs re-architect)</li>
+            <li>Risk register with mitigations</li>
+            <li>Timeline and phasing</li>
+            <li>Cost estimate (on-prem vs cloud TCO)</li>
+            <li>How to use this as a template</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mapping-note">
+        <span>→ JD mapping:</span> "Create technical concepts and presentations for clients" + "Analyze business requirements" + "Direct client contact" + "Interdisciplinary teamwork"
+      </div>
+
+      <div class="pitch-box">
+        I built a complete consulting deliverable — not just code, but the full package a client would receive: as-is and target architecture diagrams, Terraform landing zone bootstrap, GDPR security checklist, and a five-slide non-technical executive summary. I wanted to prove I can bridge the gap between architecture decisions and business communication, which is exactly what this role demands.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /section projects -->
+
+<!-- OUTPUT 3A: BEHAVIORAL -->
+<div class="section" id="behavioral">
+  <p class="section-label">Output 03a</p>
+  <h2>Behavioral Questions (STAR Format)</h2>
+  <p class="section-intro">Six questions this consultancy is likely to ask, with model answers using only real facts from your CV. Where a question exposes a gap, you'll find explicit coaching on how to answer honestly while showing growth mindset.</p>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">Q1 — Leadership & Ownership</p>
+      Tell me about a time you took ownership of a technically complex project from scratch.
+    </div>
+    <div class="qa-body">
+      <div class="star-grid">
+        <span class="star-label">Situation</span>
+        <span class="star-text">In my Cloud Secrets Manager project, my team needed a secure, production-grade secrets management platform for our studies. There was no existing architecture, no template to follow — and security requirements demanded SOC2, GDPR, and HIPAA compliance from day one.</span>
+        <span class="star-label">Task</span>
+        <span class="star-text">I was the lead architect. My responsibility was to design the full system — three microservices, event-driven communication, encryption design, and the entire GCP Kubernetes deployment — while also writing most of the backend.</span>
+        <span class="star-label">Action</span>
+        <span class="star-text">I chose an event-driven architecture with GCP Pub/Sub to decouple the services and prevent any single point of failure. I designed zero-knowledge AES-256-GCM encryption so that secrets are encrypted before they reach our storage layer. I set up Terraform for all infrastructure, Helm for Kubernetes deployments, and Prometheus/Grafana/Loki for full observability — including audit logs meeting compliance standards.</span>
+        <span class="star-label">Result</span>
+        <span class="star-text">The platform runs end-to-end on GCP Kubernetes with full IaC reproducibility, a working React dashboard, and a compliance audit log. It's the most complex system I've built independently, and it directly informed the architecture decisions I now apply to AWS and Azure projects.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">Q2 — Teamwork & Scrum</p>
+      Describe a situation where you had to lead a team with conflicting priorities.
+    </div>
+    <div class="qa-body">
+      <div class="star-grid">
+        <span class="star-label">Situation</span>
+        <span class="star-text">In the Supreme Bus project, I was both Scrum Master and Lead Developer of a 4-person team building a 4-microservice ticket booking system in Java and Spring Boot.</span>
+        <span class="star-label">Task</span>
+        <span class="star-text">The team had conflicting views on service boundaries — one member wanted a monolith for simplicity, others wanted micro-frontends. I had to align the team on architecture while keeping sprints on track.</span>
+        <span class="star-label">Action</span>
+        <span class="star-text">I ran a focused architecture spike in Sprint 1, where each approach was prototyped in two days. I presented a clear tradeoff analysis — monolith would have been faster to build but harder to scale and test independently. The team agreed on four services after seeing the prototype. As Scrum Master, I managed the backlog to keep technical debt visible alongside feature work.</span>
+        <span class="star-label">Result</span>
+        <span class="star-text">We shipped all four microservices with Docker-based local development on schedule. More importantly, the team had a shared understanding of why we made each architectural choice — which made the retrospective conversations far more substantive than "it worked."</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">Q3 — Technical Communication (Gap question)</p>
+      Give an example of explaining a complex technical concept to a non-technical stakeholder.
+    </div>
+    <div class="qa-body">
+      <div class="gap-flag">⚠ Gap — no consulting or direct client history. Answer honestly, bridge with adjacent real experience.</div>
+      <div class="star-grid">
+        <span class="star-label">Situation</span>
+        <span class="star-text">In the Cloud Secrets Manager project, I had to present the security architecture to a professor who evaluated it from a business risk perspective, not a technical one. She asked directly: "How do I know client secrets can't be read even if your database is breached?"</span>
+        <span class="star-label">Task</span>
+        <span class="star-text">My job was to explain zero-knowledge encryption — a concept with real technical depth — without losing her in cryptographic detail.</span>
+        <span class="star-label">Action</span>
+        <span class="star-text">I used an analogy: "Imagine you hand me a sealed box. I can store it, move it, even lose it — but I never have the key to open it. That's what zero-knowledge encryption means for your secrets." I followed with one diagram showing what our database stores versus what we'd need to reconstruct a secret, and what information would be missing without the client's key.</span>
+        <span class="star-label">Result</span>
+        <span class="star-text">She asked no further technical questions about the encryption and instead focused on compliance implications — which told me the explanation landed. I've since used the same "sealed box" framing whenever I need to explain cryptographic principles to a non-technical audience. I'm genuinely excited to apply this to real client conversations, which is part of what draws me to a consulting role like this one.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">Q4 — Learning Speed</p>
+      Tell me about a time you had to learn something new under time pressure.
+    </div>
+    <div class="qa-body">
+      <div class="star-grid">
+        <span class="star-label">Situation</span>
+        <span class="star-text">In my Real-time AI TTS System, I needed a Rust backend that could achieve sub-millisecond audio streaming latency for a 9-language neural TTS engine. I had never built a production Rust system before starting this project.</span>
+        <span class="star-label">Task</span>
+        <span class="star-text">I had roughly three weeks to build a working Rust async backend using Axum and Tokio — technologies I was learning in parallel with building the actual product.</span>
+        <span class="star-label">Action</span>
+        <span class="star-text">I treated the Rust borrow checker not as an obstacle but as a specification for correctness. I read the Tokio documentation systematically, wrote small isolated examples for every concurrency pattern before integrating, and used ONNX Runtime for the HuggingFace model inference because it had both Rust bindings and a strong track record in production ML pipelines.</span>
+        <span class="star-label">Result</span>
+        <span class="star-text">The system achieved genuine sub-millisecond WebSocket streaming latency across 9 languages, built solo in under a month. That experience is directly how I approach learning AWS and Azure now: systematic, documentation-first, build small proof-of-concepts before integrating.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">Q5 — Problem Solving Under Constraints</p>
+      Describe a difficult technical problem you solved and the approach you took.
+    </div>
+    <div class="qa-body">
+      <div class="star-grid">
+        <span class="star-label">Situation</span>
+        <span class="star-text">In the Cloud Secrets Manager, I needed to guarantee that a secret's value is never transmitted or stored in plaintext — even on the server side — while still supporting key rotation without requiring clients to re-encrypt all their data.</span>
+        <span class="star-label">Task</span>
+        <span class="star-text">Design an encryption scheme that enables key rotation without full re-encryption — a problem that sounds simple but has subtle cryptographic challenges around wrapping keys.</span>
+        <span class="star-label">Action</span>
+        <span class="star-text">I used a data encryption key (DEK) wrapped by a key encryption key (KEK) architecture — the same pattern used by AWS KMS and Google Cloud KMS. The client controls the KEK; our service only ever sees the wrapped DEK and the ciphertext. Key rotation only requires re-wrapping the DEK, not re-encrypting all data. I documented the design decision in an ADR because it's a non-obvious choice with long-term security implications.</span>
+        <span class="star-label">Result</span>
+        <span class="star-text">The system correctly handles key rotation with zero data re-encryption and passes a HIPAA compliance audit checklist I implemented as automated tests. I can explain this pattern in a client presentation clearly because I built it from the ground up.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">Q6 — Cross-functional Collaboration</p>
+      Tell me about a time you had to work with people with different technical backgrounds.
+    </div>
+    <div class="qa-body">
+      <div class="star-grid">
+        <span class="star-label">Situation</span>
+        <span class="star-text">In the Supreme Bus project, our 4-person team had mixed backgrounds — one member was primarily frontend-focused, one was new to microservices, and one had strong database skills but limited Docker experience.</span>
+        <span class="star-label">Task</span>
+        <span class="star-text">As Scrum Master and Lead Dev, I needed to distribute work in a way that challenged each person without creating bottlenecks, and kept the technical quality consistent across all four services.</span>
+        <span class="star-label">Action</span>
+        <span class="star-text">I set up a shared Dockerized local development environment in Sprint 0 so everyone could run all four services with a single command — removing the "it works on my machine" problem completely. I paired with the microservices-new member on the service-to-service communication design, and ran a 2-hour Docker workshop for the team member who needed it. I reviewed all PRs with explicit architectural feedback rather than just "LGTM."</span>
+        <span class="star-label">Result</span>
+        <span class="star-text">All four team members contributed to backend services by Sprint 3, and the junior team member told me the Docker workshop was the most useful thing they learned that semester. The system shipped with consistent API patterns and error handling across all four services — something that usually breaks down in team projects.</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /behavioral -->
+
+<!-- OUTPUT 3B: TECHNICAL -->
+<div class="section" id="technical">
+  <p class="section-label">Output 03b</p>
+  <h2>Technical Deep-Dive Questions</h2>
+  <p class="section-intro">Eight questions a cloud engineering interviewer at this firm would realistically ask. Model answers are 2–4 sentences, confident, specific. Gap questions include a bridging phrase you can use verbatim.</p>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T1 — IaC</p>
+      How do you manage Terraform state in a team environment, and what's your approach to preventing state corruption?
+    </div>
+    <div class="qa-body">
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        In my Cloud Secrets Manager project, I used GCS as a remote state backend with bucket versioning and object locking enabled — the same pattern I've since applied on AWS with S3 + DynamoDB for state locking. State corruption in teams almost always comes from two engineers running apply simultaneously, so the DynamoDB lock is non-negotiable in any CI/CD setup. I also enforce a strict rule: never run terraform apply locally in production — all applies go through the pipeline where the lock is always acquired and the plan output is visible in the PR.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T2 — IAM (Gap question)</p>
+      Walk me through how you'd design IAM permissions for a microservice that needs to read from S3 and write to SQS.
+    </div>
+    <div class="qa-body">
+      <div class="gap-flag">⚠ AWS-specific — bridge from your GCP IAM and Cloud Secrets Manager security work.</div>
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        On GCP I would use a dedicated Service Account with <code>roles/storage.objectViewer</code> scoped to a specific bucket and a custom Pub/Sub publisher role. On AWS — which I've been working with in my recent projects — the pattern is identical in principle but different in syntax: I'd create an IAM role with an inline policy granting <code>s3:GetObject</code> on the specific bucket ARN and <code>sqs:SendMessage</code> on the specific queue ARN, with no wildcards. I'd attach that role to the ECS task definition via the task role, not the instance role — so the permissions are per-service, not per-host. Least privilege, scoped to exact resources, never stored credentials in the container.
+      </div>
+      <div class="bridge-box">
+        <span class="bridge-label">Bridging phrase</span>
+        "I've applied this exact IAM least-privilege pattern on GCP for two years — the mental model transfers directly to AWS. In my current portfolio project I'm implementing it with an ECS Fargate task role…"
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T3 — Observability</p>
+      How would you set up observability for a microservice running on Kubernetes?
+    </div>
+    <div class="qa-body">
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        I set this up exactly in my Cloud Secrets Manager project: Prometheus for metrics scraping via a ServiceMonitor CRD, Grafana for dashboards with one per service showing latency percentiles, error rates, and saturation — the USE method as a baseline. Loki for log aggregation with structured JSON logs so I can filter by trace ID. For distributed tracing I used OpenTelemetry instrumentation in Spring Boot. On AWS the stack is either the same (self-hosted on EKS) or replaced by CloudWatch Container Insights + X-Ray — same concepts, different managed services. The key principle is the same: a single dashboard where I can jump from a Grafana metric spike to the correlated Loki log line in under 30 seconds.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T4 — Microservice Architecture</p>
+      How do you handle service-to-service communication failures in a microservice system?
+    </div>
+    <div class="qa-body">
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        In my Cloud Secrets Manager, I used event-driven communication via GCP Pub/Sub for async operations — a message-at-least-once delivery removes the tight coupling that causes cascade failures. For synchronous calls I use the circuit breaker pattern, which in Spring Boot means Resilience4j with fallback responses and exponential backoff. The most important thing is to decide upfront for each service interaction whether it needs to be synchronous or can tolerate async — most "synchronous" integrations I've seen in production don't actually need to be, and async with a dead-letter queue for failure handling is far more resilient.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T5 — CI/CD Security (Your strength)</p>
+      How do you integrate security into a CI/CD pipeline without slowing down deployments?
+    </div>
+    <div class="qa-body">
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        I use Trivy in my GitHub Actions pipelines — it runs in under 2 minutes for a typical Docker image scan and will block the pipeline on CRITICAL and HIGH CVEs. The key is to fail-fast on container images before they're pushed to the registry, not after. Beyond image scanning, I enforce secret scanning with GitGuardian on push and run Terraform static analysis with tfsec before any plan. In my Cloud Secrets Manager, I also added automated HIPAA and SOC2 compliance checks as part of the pipeline — these are fast because they're rules-based, not dynamic scanning. The philosophy is: shift left and automate everything that can be automated; the security review meeting should handle only the things automation can't.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T6 — Containers & Kubernetes</p>
+      Explain the difference between a Kubernetes Deployment and a StatefulSet, and when you'd use each.
+    </div>
+    <div class="qa-body">
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        A Deployment manages stateless pods — each replica is identical and interchangeable, so you can kill and replace any of them freely. A StatefulSet gives each pod a stable, persistent identity: a fixed hostname like <code>mysql-0</code>, <code>mysql-1</code>, and a PersistentVolumeClaim that stays bound to that specific pod across restarts. In my GKE deployments on the Cloud Secrets Manager project, the application services ran as Deployments — three replicas, any can handle any request. If I added a self-hosted PostgreSQL, that would be a StatefulSet with a PVC per pod. In practice for consulting clients I'd avoid StatefulSets for databases on Kubernetes entirely and use a managed service like RDS or Cloud SQL — StatefulSets add operational complexity that managed databases solve for you.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T7 — Architecture Decision Making</p>
+      When would you choose a serverless approach over a containerized microservice?
+    </div>
+    <div class="qa-body">
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        Serverless wins on three dimensions: highly bursty workloads (traffic that's zero 95% of the time), very short execution time (under 15 minutes), and where operational simplicity outweighs cost at scale. My Cloud Cost Anomaly Detector is a perfect Lambda use case — it runs once daily, takes 30 seconds, and I'd pay for 30 seconds of compute per day. My Cloud Secrets Manager API, by contrast, runs as a containerized service on ECS/GKE — it has consistently high traffic, needs persistent WebSocket connections, and the cold start latency of Lambda would be unacceptable for an interactive secrets API. The honest answer for client work: containers give you more control and fewer surprises; serverless gives you less to maintain. I always ask the client: what's their operational maturity? A team without a DevOps engineer often gets more value from Lambda than from a Kubernetes cluster they don't know how to operate.
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q">
+      <p class="q-num">T8 — Python & Automation (Gap question)</p>
+      Can you write a Python script to automate a cloud infrastructure task? Walk me through your approach.
+    </div>
+    <div class="qa-body">
+      <div class="gap-flag">⚠ Python gap — acknowledge it directly, then demonstrate real capability from your recent work.</div>
+      <p class="model-answer-label">Model answer</p>
+      <div class="model-answer">
+        Python wasn't in my original stack — I came from Java, Rust, and TypeScript — but I've spent the last several weeks building Python into my toolkit because this role specifically requires it. I built a FastAPI service with boto3 integration for my Cloud Cost Anomaly Detector project. Concretely, the boto3 pattern for an S3 automation task looks like: I'd use the AWS SDK client with explicit region and role assumption via STS, write type-annotated functions using Python dataclasses for the response models, and handle pagination with a paginator object rather than manual iteration. Coming from TypeScript, Python's type hints feel immediately familiar — I apply the same discipline: no <code>Any</code> types, explicit return types, dataclasses over raw dicts.
+      </div>
+      <div class="bridge-box">
+        <span class="bridge-label">Bridging phrase</span>
+        "I've been using Python for 6 weeks in my portfolio projects, so it's not as deep as my Java expertise — but I'd rather be honest about that and show you what I built than claim fluency I don't have."
+      </div>
+    </div>
+  </div>
+
+</div><!-- /technical -->
+
+<!-- OUTPUT 3C: QUESTIONS TO ASK -->
+<div class="section" id="questions">
+  <p class="section-label">Output 03c</p>
+  <h2>Questions to Ask the Interviewer</h2>
+  <p class="section-intro">Five questions that signal you think strategically about cloud architecture work in a consulting context — not just technical curiosity, but business awareness.</p>
+
+  <div class="ask-card">
+    <span class="ask-num">01</span>
+    <div>
+      <p class="ask-q">When a client's cloud migration project encounters a technical decision that has significant cost implications, how do working students typically participate in those conversations — observer, analyst, or active voice?</p>
+      <p class="ask-why">Shows you're thinking about ownership level and professional growth trajectory, not just task execution. Signals you want to be useful, not just present.</p>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <span class="ask-num">02</span>
+    <div>
+      <p class="ask-q">Which cloud providers are you seeing the most demand from German clients right now — and is the Azure dominance in the enterprise market holding, or are you seeing clients genuinely evaluate multi-cloud strategies?</p>
+      <p class="ask-why">Shows you've done market research and understand the German enterprise landscape. Opens a real technical conversation instead of a generic one.</p>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <span class="ask-num">03</span>
+    <div>
+      <p class="ask-q">How do you handle situations where a client's in-house team has strong opinions about architecture that conflict with your firm's recommended approach? What's the typical escalation path?</p>
+      <p class="ask-why">Shows you understand the dynamics of consulting — that technical correctness alone doesn't win, and that stakeholder alignment is part of the work. Matures you beyond "junior developer" framing.</p>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <span class="ask-num">04</span>
+    <div>
+      <p class="ask-q">In your cloud engineering projects, what's the most common gap you see between what clients think they need technically and what actually solves their problem?</p>
+      <p class="ask-why">Extremely strong question — it invites the interviewer to share real intellectual content, signals that you think about the business problem not just the technical solution, and the answer will genuinely inform your work if you get the role.</p>
+    </div>
+  </div>
+
+  <div class="ask-card">
+    <span class="ask-num">05</span>
+    <div>
+      <p class="ask-q">Is there a recent project where the initial architecture had to be significantly redesigned partway through — and what drove that decision? I'm curious about how the firm handles architectural course-corrections with clients.</p>
+      <p class="ask-why">Shows maturity — you understand that architecture is iterative and you're not naively expecting perfect upfront design. The answer will tell you a lot about the firm's actual engineering culture.</p>
+    </div>
+  </div>
+
+</div><!-- /questions -->
+
+<!-- OUTPUT 3D: 90-SECOND PITCH -->
+<div class="section" id="pitch">
+  <p class="section-label">Output 03d</p>
+  <h2>The 90-Second Opening Pitch</h2>
+  <p class="section-intro">Your opening self-introduction. Memorize the structure, not the words. Use it as a scaffold and let it sound natural. Do not read it.</p>
+
+  <div class="pitch-card">
+    <div class="pitch-text">
+      I'm a cloud engineer and backend developer studying Applied Computer Science at Hochschule Kaiserslautern, finishing in 2027. My core identity is <em>security-first distributed systems</em> — I'm at my best when I'm designing something that has to be both robust and provably secure.<br><br>
+      Two projects define that identity most clearly. The first is a Cloud Secrets Manager platform I architected from the ground up — three microservices with event-driven communication on GCP, zero-knowledge AES-256-GCM encryption, full Kubernetes deployment with Helm and Terraform, and an observability stack meeting SOC2 and HIPAA audit requirements. The second is a real-time AI text-to-speech system I built solo in Rust — sub-millisecond WebSocket streaming latency across nine languages, using ONNX inference with HuggingFace models.<br><br>
+      My cloud depth is on GCP, and I've spent the last six weeks deliberately closing that gap — building on AWS and Azure, studying for the Solutions Architect Associate exam, and adding Python to my stack. <strong>I'm not starting from zero: I understand cloud primitives deeply, and the translation from GCP to AWS or Azure is mechanical once the mental model is solid.</strong><br><br>
+      What excites me about this firm specifically is client-facing architecture work — translating real business requirements into technical decisions and being accountable for the outcome. That's the part of engineering I find most meaningful, and it's not something I can get from a side project.
+    </div>
+  </div>
+
+  <div style="margin-top: 24px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+    <p class="mini-label">Coaching notes</p>
+    <ul class="item-list" style="margin-top: 8px;">
+      <li>Open with your technical identity, not your degree. "Cloud engineer and backend developer" is stronger than "I'm a student."</li>
+      <li>Name the projects — don't summarize them generically. Specific project names signal real depth.</li>
+      <li>Acknowledge the AWS/Azure gap proactively and frame it as already-in-progress. Never let the interviewer discover it as a surprise.</li>
+      <li>The final line is the most important — it explains why you want <em>this specific role</em>, not just any cloud job. Customize it to what you learn about the firm before the interview.</li>
+      <li>Target time: 80–100 seconds. Under 60 seconds sounds unprepared. Over 120 seconds loses the room.</li>
+    </ul>
+  </div>
+
+</div><!-- /pitch -->
+
+</div><!-- /container -->
+
+<div style="border-top: 1px solid var(--border); padding: 32px 40px; max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px;">
+  <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text3)">Amine Lahbib — Cloud Engineering Career Brief</span>
+  <span style="font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text3)">Target: Working Student Cloud Engineering &amp; Software Development</span>
+</div>
+
+</body>
+</html>
