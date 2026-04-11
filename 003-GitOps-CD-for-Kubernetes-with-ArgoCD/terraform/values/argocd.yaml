@@ -1,12 +1,16 @@
-# Helm values overlay for the `argo-cd` chart (merged with chart defaults from argocd-defaults.yaml).
-# Pinning the image tag keeps the running Argo CD version explicit; `--insecure` serves the UI over HTTP
-# (typical for local/minikube when you terminate TLS elsewhere or use port-forward without TLS).
-
+# Helm values overlay for argo-cd: image tag and server flags (merged with chart defaults).
+# Start of YAML document.
 ---
+# Chart-wide defaults shared by all Argo CD components.
 global:
+  # Container image settings.
   image:
+    # Argo CD image tag (pins server/controller/etc. version).
     tag: v2.6.6
 
+# Argo CD API/UI server settings.
 server:
+  # Extra CLI args passed to argocd-server.
   extraArgs:
+    # Serve HTTP without TLS on the pod (common behind ingress or port-forward).
     - --insecure

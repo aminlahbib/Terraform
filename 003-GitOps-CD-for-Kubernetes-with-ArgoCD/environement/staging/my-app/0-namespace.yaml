@@ -1,7 +1,11 @@
-# Namespace for the "my-app" staging example; workloads in this folder target `metadata.name: foo`.
-
+# Kubernetes Namespace manifest for staging my-app (workloads use namespace foo).
+# YAML document separator.
 ---
+# Core API version for Namespace.
 apiVersion: v1
+# Resource is a Namespace.
 kind: Namespace
+# Namespace name and labels (labels omitted here).
 metadata:
+  # Name of the namespace pods will run in.
   name: foo

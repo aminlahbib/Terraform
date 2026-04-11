@@ -1,30 +1,51 @@
-# Example Argo CD Application: syncs staging `my-app` manifests from this repo to the same cluster.
-# Apply: kubectl apply -n argocd -f 1-example/application.yaml
-# Deletion: `argocd app delete my-app` or `kubectl delete -f 1-example/application.yaml --timeout=120s`.
-# Finalizer must match https://argo-cd.readthedocs.io/en/latest/user-guide/app_deletion/ (foreground cascade).
-
+# Single Argo CD Application syncing staging my-app manifests from Git to the local cluster.
+# Argo Application CRD version.
 apiVersion: argoproj.io/v1alpha1
+# Declares an Application resource.
 kind: Application
+# Name, namespace, and deletion/cascade behavior.
 metadata:
+  # Application name in Argo CD.
   name: my-app
+  # Argo CD control plane namespace.
   namespace: argocd
+  # Cascade-delete managed resources before removing this CR (foreground).
   finalizers:
+    # Foreground cascading deletion finalizer (see Argo docs).
     - resources-finalizer.argocd.argoproj.io
+# Desired Git source, destination cluster, and sync policy.
 spec:
+  # AppProject for RBAC and allowed repos/namespaces.
   project: default
+  # Where to read manifests from.
   source:
+    # Git repository URL.
     repoURL: https://github.com/aminlahbib/Terraform.git
+    # Branch, tag, or commit to sync.
     targetRevision: HEAD
+    # Directory in repo containing Kubernetes YAML (or Helm/Kustomize root).
     path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environement/staging/my-app
+  # Cluster and namespace to deploy into (empty namespace = default or from manifests).
   destination:
+    # In-cluster API server (where Argo runs).
     server: https://kubernetes.default.svc
+  # How and when to sync.
   syncPolicy:
+    # Automated sync options.
     automated:
+      # Remove cluster objects no longer in Git.
       prune: true
+      # Revert manual drift back to Git.
       selfHeal: true
+      # Do not block syncing when the app would have zero resources.
       allowEmpty: false
+    # Extra sync behavior flags.
     syncOptions:
+      # Run kubectl apply --dry-run=server validation.
       - Validate=true
+      # Do not auto-create destination namespace.
       - CreateNamespace=false
+      # Wait for dependents to delete before parents.
       - PrunePropagationPolicy=foreground
+      # Prune after other resources in the sync wave.
       - PruneLast=true

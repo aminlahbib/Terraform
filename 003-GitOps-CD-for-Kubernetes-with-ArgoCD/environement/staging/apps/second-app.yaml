@@ -1,28 +1,52 @@
-# Child Application: deploys manifests under `environement/staging/second-app` into namespace `bar`.
-
+# Child Argo CD Application: Git path environement/staging/second-app → cluster (bar + nginx).
+# YAML document separator.
 ---
+# Argo Application API version.
 apiVersion: argoproj.io/v1alpha1
+# Application kind.
 kind: Application
+# Name, namespace, cascade finalizer.
 metadata:
+  # Second demo Application name.
   name: second-app-bar
+  # Argo CD control plane namespace.
   namespace: argocd
+  # Cascade-delete workloads when this Application is removed.
   finalizers:
+    # Cascade finalizer for child app.
     - resources-finalizer.argocd.argoproj.io
+# GitOps spec for second app.
 spec:
+  # AppProject for permissions.
   project: default
+  # Git source of manifests.
   source:
+    # Repository URL.
     repoURL: https://github.com/aminlahbib/Terraform.git
+    # Branch/tag/commit.
     targetRevision: HEAD
+    # Directory with Namespace + Deployment YAML.
     path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environement/staging/second-app
+  # Target cluster.
   destination:
+    # In-cluster API endpoint.
     server: https://kubernetes.default.svc
+  # Automated sync policy.
   syncPolicy:
     automated:
+      # Prune resources removed from Git.
       prune: true
+      # Self-heal drift.
       selfHeal: true
+      # Block sync that leaves app empty when false.
       allowEmpty: false
+    # Additional sync flags.
     syncOptions:
+      # Server-side validation.
       - Validate=true
+      # Do not auto-create namespace.
       - CreateNamespace=false
+      # Foreground prune order.
       - PrunePropagationPolicy=foreground
-      - PruneLast=true 
+      # Prune after other sync steps.
+      - PruneLast=true

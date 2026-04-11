@@ -1,14 +1,19 @@
-# Installs Argo CD via Helm: creates the `argocd` namespace, core workloads (controller,
-# server, repo-server, Redis, Dex), and CRDs. Values in values/argocd.yaml override chart defaults.
-
+# Helm release: installs the Argo CD chart into the cluster.
 resource "helm_release" "argocd" {
-  name       = "argocd"
+  # Release name in Helm / cluster.
+  name = "argocd"
+  # OCI/HTTP repo URL for argo-helm.
   repository = "https://argoproj.github.io/argo-helm"
-  chart      = "argo-cd"
+  # Chart name inside that repository.
+  chart = "argo-cd"
+  # Target Kubernetes namespace for Argo CD.
   namespace = "argocd"
+  # Create the namespace if it does not exist.
   create_namespace = true
+  # Pin chart version for repeatable installs.
   version = "3.35.4"
 
-  values = [ file("values/argocd.yaml")]
-  
+  # Merge these values into the chart defaults.
+  values = [file("values/argocd.yaml")]
+
 }

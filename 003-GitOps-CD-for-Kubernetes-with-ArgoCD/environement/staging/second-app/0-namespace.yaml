@@ -1,7 +1,11 @@
-# Namespace for the "second-app" staging example; paired Deployment uses `metadata.name: bar`.
-
+# Kubernetes Namespace for second-app demo (Deployment targets namespace bar).
+# YAML document separator.
 ---
+# Core v1 API.
 apiVersion: v1
+# Namespace resource.
 kind: Namespace
+# Object metadata.
 metadata:
+  # Namespace name used by second-app Deployment.
   name: bar

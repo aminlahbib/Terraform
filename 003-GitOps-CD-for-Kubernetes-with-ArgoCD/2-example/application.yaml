@@ -1,35 +1,52 @@
-# "App of apps" root Application for staging: syncs every manifest under `.../staging/apps/`
-# (child Application CRs). Those children each point at workload directories (e.g. my-app, second-app).
-# Ensure `spec.source.path` matches the real folder name in Git (this repo uses `environement/`, not `environments/`).
-#
-# Deletion: Prefer `argocd app delete apps-staging` (cascade). Plain `kubectl delete` waits on the finalizer; if the
-# app stays "Deleting", see https://argo-cd.readthedocs.io/en/latest/user-guide/app_deletion/ — use the documented
-# finalizer name below. Increase wait: `kubectl delete -f 2-example/application.yaml --timeout=120s`.
-
+# Root Application (app-of-apps): syncs child Application manifests under staging/apps from Git.
+# Optional explicit document separator for YAML parsers.
 ---
+# Argo Application CRD version.
 apiVersion: argoproj.io/v1alpha1
+# Declares an Application resource.
 kind: Application
+# Name, namespace, and cascade finalizer.
 metadata:
+  # Name of the parent staging app.
   name: apps-staging
+  # Argo CD installs in this namespace.
   namespace: argocd
+  # Prune managed resources (child apps) before this CR is removed.
   finalizers:
-    # Foreground cascade (official). Avoid `.../resources` — it can deadlock with automated sync during delete.
+    # Foreground cascading deletion finalizer.
     - resources-finalizer.argocd.argoproj.io
+# Desired Git path of Application YAML files and sync settings.
 spec:
+  # AppProject.
   project: default
+  # Git source for the directory of child Application manifests.
   source:
+    # Upstream Git repo.
     repoURL: 'https://github.com/aminlahbib/Terraform.git'
+    # Revision to track.
     targetRevision: HEAD
+    # Folder containing my-app.yaml, second-app.yaml, etc.
     path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environement/staging/apps
+  # Deploy Applications into the same cluster Argo uses.
   destination:
+    # In-cluster API server.
     server: https://kubernetes.default.svc
+  # Automated sync and prune for all children.
   syncPolicy:
     automated:
+      # Delete resources removed from Git.
       prune: true
+      # Undo drift.
       selfHeal: true
+      # Allow pruning to zero resources when Git no longer lists apps.
       allowEmpty: true
+    # Extra sync flags for all resources from this app.
     syncOptions:
+      # Server-side manifest validation.
       - Validate=true
+      # Namespace must already exist or be created elsewhere.
       - CreateNamespace=false
+      # Foreground dependency order when pruning.
       - PrunePropagationPolicy=foreground
+      # Defer pruning until end of sync.
       - PruneLast=true

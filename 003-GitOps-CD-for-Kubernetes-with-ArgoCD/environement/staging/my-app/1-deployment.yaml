@@ -1,26 +1,47 @@
-# Sample workload: nginx Deployment in namespace `foo`. The GitOps demo script (`updrade.sh`) rewrites
-# the `aminlahbib/nginx:<tag>` image to roll out new versions via Git commits.
-
+# nginx Deployment for staging my-app in namespace foo (image tag bumped by GitOps scripts).
+# YAML document separator.
 ---
+# apps/v1 API for Deployments.
 apiVersion: apps/v1
+# Deployment workload controller resource.
 kind: Deployment
+# Namespaced object identity and labels.
 metadata:
+  # Deployment name.
   name: nginx
+  # Target namespace (must exist or be created by sync policy).
   namespace: foo
+  # Labels applied to the Deployment and used by Service selectors.
   labels:
+    # App label for selectors.
     app: nginx
+# Desired replica count and pod template.
 spec:
+  # Number of pod replicas.
   replicas: 1
+  # How the Deployment finds its pods.
   selector:
+    # Pod must have this label to belong to this Deployment.
     matchLabels:
+      # Key/value label on Pods managed by this Deployment.
       app: nginx
+  # Pod template for created replicas.
   template:
+    # Metadata for each Pod from this template.
     metadata:
+      # Labels on each Pod (must match selector).
       labels:
+        # App label copied to each Pod.
         app: nginx
+    # Pod spec: containers and networking.
     spec:
+      # List of containers in the Pod.
       containers:
+        # Single nginx container.
         - name: nginx
+          # Container image (registry/repo:tag).
           image: aminlahbib/nginx:v0.1.2
+          # Ports exposed by the container.
           ports:
-          - containerPort: 80
+            # HTTP port inside the container.
+            - containerPort: 80

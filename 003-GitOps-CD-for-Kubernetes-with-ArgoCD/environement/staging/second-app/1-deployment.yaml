@@ -1,25 +1,46 @@
-# Second sample nginx Deployment (namespace `bar`) to show multiple apps managed by separate Argo Applications.
-
+# nginx Deployment for second-app in namespace bar (mirror of my-app example).
+# YAML document separator.
 ---
+# Workloads API version.
 apiVersion: apps/v1
+# Deployment kind.
 kind: Deployment
+# Deployment identity.
 metadata:
+  # Resource name.
   name: nginx
+  # Runs in bar namespace.
   namespace: bar
+  # Selector labels on the Deployment.
   labels:
+    # App label for Pod selection.
     app: nginx
+# Replica set and pod template.
 spec:
+  # Desired number of Pods.
   replicas: 1
+  # Label query to find Pods owned by this Deployment.
   selector:
     matchLabels:
+      # Must match template.metadata.labels.
       app: nginx
+  # Blueprint for Pods the Deployment creates.
   template:
+    # Pod metadata.
     metadata:
+      # Labels applied to each Pod.
       labels:
+        # App label used by Service/selector.
         app: nginx
+    # Pod specification.
     spec:
+      # Containers running in the Pod.
       containers:
+        # nginx container definition.
         - name: nginx
+          # Image to run.
           image: aminlahbib/nginx:v0.1.2
+          # Exposed ports.
           ports:
+            # Listen on port 80 in the container.
             - containerPort: 80

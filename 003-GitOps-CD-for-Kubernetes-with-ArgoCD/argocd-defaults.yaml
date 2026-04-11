@@ -1,6 +1,4 @@
-# Full default values file for the upstream `argo-cd` Helm chart (argo-helm), kept here as reference.
-# The live install uses `terraform/1-argocd.tf` with `terraform/values/argocd.yaml` layered on top;
-# treat this file as documentation / diff baseline, not something you apply directly to the cluster.
+# Upstream argo-cd Helm chart default values (reference only; install uses terraform + values/argocd.yaml). Line-by-line annotations omitted.
 
 ## ArgoCD configuration
 ## Ref: https://github.com/argoproj/argo-cd

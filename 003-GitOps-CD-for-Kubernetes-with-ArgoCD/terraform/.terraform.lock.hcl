@@ -1,10 +1,13 @@
+# Terraform dependency lock: pins provider versions for reproducible applies (updated by terraform init).
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
-# Locks provider versions (here: hashicorp/helm) so `terraform apply` stays reproducible across machines.
-
+# Registry provider package being locked.
 provider "registry.terraform.io/hashicorp/helm" {
+  # Exact provider version selected for this workspace.
   version     = "2.17.0"
+  # Version constraint from required_providers that this satisfies.
   constraints = "~> 2.13"
+  # Cryptographic checksums for the provider zip (Terraform verifies on download).
   hashes = [
     "h1:kQMkcPVvHOguOqnxoEU2sm1ND9vCHiT8TvZ2x6v/Rsw=",
     "zh:06fb4e9932f0afc1904d2279e6e99353c2ddac0d765305ce90519af410706bd4",
