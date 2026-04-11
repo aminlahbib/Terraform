@@ -8,7 +8,7 @@ resource "helm_release" "argocd" {
   chart = "argo-cd"
   # Target Kubernetes namespace for Argo CD.
   namespace = "argocd"
-  # Create the namespace if it does not exist.
+  # Create the namespace if it does not ^ist.
   create_namespace = true
   # Pin chart version for repeatable installs.
   version = "3.35.4"
