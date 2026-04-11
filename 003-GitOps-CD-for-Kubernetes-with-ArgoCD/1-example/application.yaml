@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+    name: my-app
+    namespace: argocd
+    finalizers:
+    - resources-finalizer.argocd.argoproj.io/resources
+spec:
+    project: default 
+    source:
+        repoURL: 'https://github.com/aminlahbib/Terraform.git'
+        targetRevision: 003/GitOps-CD-for-Kubernetes-with-ArgoCD
+        path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/my-app
+    destination:
+        server: 'https://kubernetes.default.svc'
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
+            allowEmpty: true
+        syncOptions:
+            - Validate=false 
+            - CreateNamespace=true
+            - PruneLast=true
+            - PrunePropagationPolicy=foreground
