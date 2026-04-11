@@ -1,23 +1,24 @@
-# Example Argo CD Application: syncs the `my-app` path in this repo to the same cluster (in-cluster).
-# Apply to the cluster where Argo CD runs: `kubectl apply -n argocd -f 1-example/application.yaml`
-# Note: `spec.source.path` must be the directory in Git that holds Kubernetes manifests (or Helm/Kustomize roots).
+# Example Argo CD Application: syncs staging `my-app` manifests from this repo to the same cluster.
+# Apply: kubectl apply -n argocd -f 1-example/application.yaml
+# The resources finalizer makes Argo prune managed objects before the Application CR is removed; if sync is broken
+# (bad repo path / branch), deletion can stick until you fix the source or clear finalizers (see project docs / Argo troubleshooting).
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-    name: my-app
-    namespace: argocd
-    finalizers:
+  name: my-app
+  namespace: argocd
+  finalizers:
     - resources-finalizer.argocd.argoproj.io/resources
 spec:
-    project: default 
-    source:
-        repoURL: 'https://github.com/aminlahbib/Terraform.git'
-        targetRevision: HEAD
-    path: my-app
-    destination:
+  project: default
+  source:
+    repoURL: https://github.com/aminlahbib/Terraform.git
+    targetRevision: HEAD
+    path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environement/staging/my-app
+  destination:
     server: https://kubernetes.default.svc
-    syncPolicy:
+  syncPolicy:
     automated:
       prune: true
       selfHeal: true

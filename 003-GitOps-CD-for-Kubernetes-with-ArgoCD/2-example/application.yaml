@@ -15,7 +15,8 @@ spec:
   source:
     repoURL: 'https://github.com/aminlahbib/Terraform.git'
     targetRevision: HEAD
-    path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environments/staging/apps
+    # Must match a real directory in Git (this repo uses `environement`, not `environments`).
+    path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environement/staging/apps
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:

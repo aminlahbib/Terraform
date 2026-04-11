@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/aminlahbib/Terraform.git
     targetRevision: HEAD
-    path: environments/staging/my-app # should match Git; directory on disk is `environement/staging/my-app`
+    path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environement/staging/my-app
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
