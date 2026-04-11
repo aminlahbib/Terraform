@@ -1,0 +1,23 @@
+helm repo add x url
+
+helm search repo
+
+helm upgrade
+
+terraform init 
+
+terraform apply --auto-
+
+kubectl get pods -n argocd
+
+kubectl port-forward svc/argocd-server -n argocd 8080:80
+
+kubectl get secrets argocd-initial-admin-secret -o yaml -n argocd
+
+echo "ZzhXcldjV3d5WDZSV1BMWA==" | base64 -d
+
+#just init credentials -can leak
+admin
+g8WrWcWwyX6RWPLX 
+
+kubectl logs -f -l app.kubernetes.io/instance=updater -n argocd
