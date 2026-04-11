@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: aminlahbib/nginx:v0.1.1
+        image: aminlahbib/nginx:v0.1.2
         ports:
         - containerPort: 80

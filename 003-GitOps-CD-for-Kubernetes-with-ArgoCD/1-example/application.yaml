@@ -10,4 +10,14 @@ spec:
         targetRevision: 003/GitOps-CD-for-Kubernetes-with-ArgoCD
         path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/my-app
     destination:
-        server: 'https://kubernetes.default.svc' 
+        server: 'https://kubernetes.default.svc'
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
+            allowEmpty: true
+        syncOptions:
+            - Validate=false 
+            - CreateNamespace=true
+            - PruneLast=true
+            - PrunePropagationPolicy=foreground
