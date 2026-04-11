@@ -1,7 +1,7 @@
 # Example Argo CD Application: syncs staging `my-app` manifests from this repo to the same cluster.
 # Apply: kubectl apply -n argocd -f 1-example/application.yaml
-# The resources finalizer makes Argo prune managed objects before the Application CR is removed; if sync is broken
-# (bad repo path / branch), deletion can stick until you fix the source or clear finalizers (see project docs / Argo troubleshooting).
+# Deletion: `argocd app delete my-app` or `kubectl delete -f 1-example/application.yaml --timeout=120s`.
+# Finalizer must match https://argo-cd.readthedocs.io/en/latest/user-guide/app_deletion/ (foreground cascade).
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -9,7 +9,7 @@ metadata:
   name: my-app
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io/resources
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:

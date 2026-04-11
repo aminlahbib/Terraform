@@ -1,6 +1,10 @@
 # "App of apps" root Application for staging: syncs every manifest under `.../staging/apps/`
 # (child Application CRs). Those children each point at workload directories (e.g. my-app, second-app).
 # Ensure `spec.source.path` matches the real folder name in Git (this repo uses `environement/`, not `environments/`).
+#
+# Deletion: Prefer `argocd app delete apps-staging` (cascade). Plain `kubectl delete` waits on the finalizer; if the
+# app stays "Deleting", see https://argo-cd.readthedocs.io/en/latest/user-guide/app_deletion/ — use the documented
+# finalizer name below. Increase wait: `kubectl delete -f 2-example/application.yaml --timeout=120s`.
 
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -9,13 +13,13 @@ metadata:
   name: apps-staging
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io/resources
+    # Foreground cascade (official). Avoid `.../resources` — it can deadlock with automated sync during delete.
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: 'https://github.com/aminlahbib/Terraform.git'
     targetRevision: HEAD
-    # Must match a real directory in Git (this repo uses `environement`, not `environments`).
     path: 003-GitOps-CD-for-Kubernetes-with-ArgoCD/environement/staging/apps
   destination:
     server: https://kubernetes.default.svc
@@ -23,7 +27,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
-      allowEmpty: false
+      allowEmpty: true
     syncOptions:
       - Validate=true
       - CreateNamespace=false
