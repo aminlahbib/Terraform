@@ -5,7 +5,6 @@
 apiVersion: argoproj.io/v1alpha1
 # Application resource.
 kind: Application
-# Metadata: name, namespace, finalizers.
 metadata:
   # Application object name in Argo.
   name: my-app-foo
@@ -13,7 +12,6 @@ metadata:
   namespace: argocd
   # Ensure managed resources are deleted when this Application is deleted.
   finalizers:
-    # Cascade finalizer for child app.
     - resources-finalizer.argocd.argoproj.io
 # Desired state and sync behavior.
 spec:
