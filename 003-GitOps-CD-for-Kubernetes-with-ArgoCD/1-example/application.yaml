@@ -1,3 +1,7 @@
+# Example Argo CD Application: syncs the `my-app` path in this repo to the same cluster (in-cluster).
+# Apply to the cluster where Argo CD runs: `kubectl apply -n argocd -f 1-example/application.yaml`
+# Note: `spec.source.path` must be the directory in Git that holds Kubernetes manifests (or Helm/Kustomize roots).
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

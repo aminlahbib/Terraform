@@ -1,3 +1,5 @@
+# Second sample nginx Deployment (namespace `bar`) to show multiple apps managed by separate Argo Applications.
+
 ---
 apiVersion: apps/v1
 kind: Deployment

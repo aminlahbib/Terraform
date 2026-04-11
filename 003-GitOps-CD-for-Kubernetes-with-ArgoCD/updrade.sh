@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+# Demo GitOps promotion script: tags/pushes a new app image, clones the GitOps branch, bumps the
+# Deployment image in my-app, commits, and pushes so Argo CD (or CI) can sync the new tag.
+# Usage: ./updrade.sh <new_version>   (requires Docker, git, sed; `sed -i ''` is macOS-style in-place edit)
+
 # exit when any command fails
 set -e
 

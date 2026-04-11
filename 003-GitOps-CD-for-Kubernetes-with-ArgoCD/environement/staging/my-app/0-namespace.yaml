@@ -1,3 +1,5 @@
+# Namespace for the "my-app" staging example; workloads in this folder target `metadata.name: foo`.
+
 ---
 apiVersion: v1
 kind: Namespace

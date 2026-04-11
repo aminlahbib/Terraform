@@ -1,3 +1,7 @@
+# Helm values overlay for the `argo-cd` chart (merged with chart defaults from argocd-defaults.yaml).
+# Pinning the image tag keeps the running Argo CD version explicit; `--insecure` serves the UI over HTTP
+# (typical for local/minikube when you terminate TLS elsewhere or use port-forward without TLS).
+
 ---
 global:
   image:

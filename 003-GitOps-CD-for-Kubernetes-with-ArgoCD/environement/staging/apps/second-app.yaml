@@ -1,3 +1,5 @@
+# Child Application: deploys manifests under `environement/staging/second-app` into namespace `bar`.
+
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -11,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/aminlahbib/Terraform.git
     targetRevision: HEAD
-    path: environments/staging/second-app
+    path: environments/staging/second-app # should match Git; directory on disk is `environement/staging/second-app`
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
@@ -23,4 +25,4 @@ spec:
       - Validate=true
       - CreateNamespace=false
       - PrunePropagationPolicy=foreground
-      - PruneLast=true
+      - PruneLast=true 

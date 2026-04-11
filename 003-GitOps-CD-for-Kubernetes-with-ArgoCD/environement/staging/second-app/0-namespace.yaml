@@ -1,3 +1,5 @@
+# Namespace for the "second-app" staging example; paired Deployment uses `metadata.name: bar`.
+
 ---
 apiVersion: v1
 kind: Namespace

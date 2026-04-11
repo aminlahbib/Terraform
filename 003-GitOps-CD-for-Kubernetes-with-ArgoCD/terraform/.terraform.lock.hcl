@@ -1,5 +1,6 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
+# Locks provider versions (here: hashicorp/helm) so `terraform apply` stays reproducible across machines.
 
 provider "registry.terraform.io/hashicorp/helm" {
   version     = "2.17.0"

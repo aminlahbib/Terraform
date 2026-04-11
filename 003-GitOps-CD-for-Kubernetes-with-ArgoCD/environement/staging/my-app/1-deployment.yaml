@@ -1,3 +1,6 @@
+# Sample workload: nginx Deployment in namespace `foo`. The GitOps demo script (`updrade.sh`) rewrites
+# the `aminlahbib/nginx:<tag>` image to roll out new versions via Git commits.
+
 ---
 apiVersion: apps/v1
 kind: Deployment

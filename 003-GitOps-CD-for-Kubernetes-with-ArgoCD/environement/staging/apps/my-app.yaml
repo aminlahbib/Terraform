@@ -1,3 +1,6 @@
+# Child Application: deploys plain Kubernetes YAML from `environement/staging/my-app` (namespace + Deployment).
+# Registered under the staging app-of-apps directory so one root Application can manage many apps.
+
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -11,7 +14,7 @@ spec:
   source:
     repoURL: https://github.com/aminlahbib/Terraform.git
     targetRevision: HEAD
-    path: environments/staging/my-app
+    path: environments/staging/my-app # should match Git; directory on disk is `environement/staging/my-app`
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
