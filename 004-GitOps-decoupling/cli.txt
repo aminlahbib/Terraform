@@ -1,8 +1,13 @@
 helm repo add x url
 
-helm search repo
+helm search repo argocd
+argo/argo-cd                    3.35.4  appversion:v2.2.5 
+argo/argocd-image-updater       1.1.5   appversion:v1.1.1
 
 helm upgrade
+
+#obtain default values for a specific helm chart
+helm show values argo/argocd-image-updater --version 1.1.5 > argocd-image-updater.yaml
 
 terraform init 
 
@@ -16,8 +21,22 @@ kubectl get secrets argocd-initial-admin-secret -o yaml -n argocd
 
 echo "ZzhXcldjV3d5WDZSV1BMWA==" | base64 -d
 
-#just init credentials -can leak
+#just init credentials changes upon each spin off -can leak
 admin
 g8WrWcWwyX6RWPLX 
 
 kubectl logs -f -l app.kubernetes.io/instance=updater -n argocd
+
+❯ docker tag nginx:1.23.4 aminlahbib/nginx-demo:v0.1.1
+❯ docker push aminlahbib/nginx-demo:v0.1.1
+
+kubectl get application -n argocd my-app -o yaml | less
+
+create an ssh key
+ssh-keygen -t ed25519 -C "argocd-deploy-key" -f ~/.ssh/id_ed25519_argocd
+cat ~/.ssh/id_ed25519_argocd.pub                                          ─╯
+
+❯ kubectl apply -f 1-example/repo-secret.yaml
+❯ kubectl apply -f 1-example/application.yaml
+
+helm uninstall updater -n argocd

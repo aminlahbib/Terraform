@@ -1,13 +1,11 @@
 ---
+image:
+  tag: "v1.1.1"
+  
 metrics:
   enabled: true
 
 config:
-  argocd.serverAddress: "argocd-server.argocd"
-  argocd.insecure: "true"
-  argocd.grpcWeb: "true"
-  argocd.plaintext: "true"
-
   registries:
     - name: Docker Hub
       api_url: https://registry-1.docker.io
